@@ -1,0 +1,131 @@
+// src/pages/Localizacao.tsx
+import React from 'react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import HeroSection from '@/components/HeroSection';
+import LocationMap from '@/components/LocationMap';
+import { MapPin, Bus, Train, Car } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+
+const Localizacao: React.FC = () => {
+  return (
+    <>
+      <Navbar />
+      
+      <main>
+        <HeroSection 
+          title="Nossa Localização" 
+          subtitle="Venha nos visitar ou entre em contato. Estamos localizados em um dos principais endereços de São Paulo."
+          buttonText="Agendar Visita"
+          buttonLink="/contato"
+          showFeatures={false}
+        />
+        
+        <section className="py-16 md:py-24">
+          <div className="container-custom">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Onde Estamos</h2>
+                <div className="flex items-start mb-8">
+                  <MapPin className="h-6 w-6 text-accent mt-1 mr-3 shrink-0" />
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Endereço</h3>
+                    <p className="text-lg text-gray-600">
+                      Av. Paulista, 2300 - Pilotis<br />
+                      Bela Vista, São Paulo - SP<br />
+                      01310-300
+                    </p>
+                  </div>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-4">Como Chegar</h3>
+                
+                <div className="space-y-6 mb-8">
+                  <div className="flex items-start">
+                    <Train className="h-6 w-6 text-accent mt-1 mr-3 shrink-0" />
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Metrô</h4>
+                      <p className="text-gray-600 mb-2">
+                        Estação Consolação (Linha 2 - Verde): 350m<br />
+                        Estação Paulista (Linha 4 - Amarela): 450m
+                      </p>
+                      <p className="text-gray-600">
+                        Ao sair da estação, caminhe pela Av. Paulista até o número 2300.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <Bus className="h-6 w-6 text-accent mt-1 mr-3 shrink-0" />
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Ônibus</h4>
+                      <p className="text-gray-600">
+                        Diversas linhas de ônibus passam pela Av. Paulista. Desça no ponto próximo ao número 2300 e caminhe até nosso edifício.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <Car className="h-6 w-6 text-accent mt-1 mr-3 shrink-0" />
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Carro</h4>
+                      <p className="text-gray-600 mb-2">
+                        Estacionamentos disponíveis nas proximidades:
+                      </p>
+                      <ul className="list-disc pl-5 text-gray-600">
+                        <li>Estacionamento Shopping Center 3 (300m)</li>
+                        <li>Estacionamento Paulista 2230 (100m)</li>
+                        <li>Estacionamento Trianon-Masp (500m)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-primary/5 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold mb-4">Agende uma Visita</h3>
+                  <p className="text-gray-600 mb-4">
+                    Gostaria de conhecer nossa sede e conversar pessoalmente? Agende uma visita e teremos prazer em recebê-lo.
+                  </p>
+                  <Button asChild className="bg-accent hover:bg-accent/80">
+                    <Link to="/contato">Agendar Visita</Link>
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="space-y-8">
+                <LocationMap />
+                
+                <div className="p-6 bg-white rounded-lg shadow-md">
+                  <h3 className="text-xl font-semibold mb-4">Pontos de Referência</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li className="flex items-start">
+                      <MapPin className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />
+                      <span>Shopping Center 3 - 300m</span>
+                    </li>
+                    <li className="flex items-start">
+                      <MapPin className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />
+                      <span>Parque Trianon - 500m</span>
+                    </li>
+                    <li className="flex items-start">
+                      <MapPin className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />
+                      <span>MASP - 600m</span>
+                    </li>
+                    <li className="flex items-start">
+                      <MapPin className="h-5 w-5 text-accent mr-2 shrink-0 mt-0.5" />
+                      <span>Conjunto Nacional - 900m</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      
+      <Footer />
+    </>
+  );
+};
+
+export default Localizacao;
